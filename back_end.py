@@ -26,8 +26,12 @@ class API(Resource):
     
     def get(self, query): 
         collect = Collection()
-        query.replace("_", " ")
+        query = query.replace("_", " ")
+        # print("Query is :"+query)
         vsm = VSM(query, collect)
+        # print("\n\n")
+        # print(vsm.ds.tfs)
+        # print("\n\n")
         normalize_tfs = vsm.normalizeTFS(vsm.ds.tfs)
 
         tfQuery = vsm.getQueryfreqs()
@@ -59,6 +63,8 @@ class API(Resource):
                 else:
                     file_data = file_data + " " + line[:-1]
             top_ten_dictionary[txt_file[11:-4]] = file_data
+        print("\nTop Ten Documents:\n--------------\n")
+        print(top_ten_dictionary.keys())
         return jsonify(top_ten_dictionary) 
   
     # Corresponds to POST request 
