@@ -51,7 +51,7 @@ class VSM:
                     docFreq += tfs["body"].get(word)
             # print(docFreq)
             tfQuery[word] = float(self.collection_length / docFreq)
-            print(tfQuery[word])
+            # print(tfQuery[word])
         return tfQuery
 
     
@@ -135,8 +135,8 @@ def main(query):
     score_list = {}
     for doc in collect.tfs:
         score_list[doc] = vsm.getDocScore(doc, normalize_tfs, tfQuery)
-        print("Value of "+doc+" is "+str(vsm.getDocScore(doc, normalize_tfs, tfQuery)))
-    print("VSM DONE\n----------------\n")
+    #     print("Value of "+doc+" is "+str(vsm.getDocScore(doc, normalize_tfs, tfQuery)))
+    # print("VSM DONE\n----------------\n")
     top_ten = []
     i=1
     for i in range(10):
