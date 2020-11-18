@@ -1,0 +1,1 @@
+web: gunicorn -w 4 back_end:back_end
